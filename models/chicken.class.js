@@ -35,7 +35,10 @@ class Chicken extends MovableObject {
 
     
     chickenMoveLeft() {
-        setInterval(() => {
+        let animationIntervall = setInterval(() => {
+            if (world.gameEnd == true) {
+                clearInterval(animationIntervall);
+            };
             if (this.active) {
                 this.moveLeft();
             }

@@ -37,7 +37,12 @@ class Chick extends MovableObject {
 
     
     chickMoveLeft() {
-        setInterval(() => {
+
+        let animationIntervall = setInterval(() => {
+            if (world.gameEnd == true) {
+                clearInterval(animationIntervall);
+            };
+            
             if (this.active) {
                 this.moveLeft();
             }

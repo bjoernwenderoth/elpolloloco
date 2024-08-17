@@ -129,7 +129,11 @@ class MovableObject extends DrawableObject {
 
 
     enemyIsDeath() {
-        setInterval(() => {
+        let animationIntervall = setInterval(() => {
+            if (world.gameEnd == true) {
+                clearInterval(animationIntervall);
+            };
+            
             if (!this.active) {
                 this.loadImage(this.IMAGE_DEAD);
                 if (!this.deathTimer) {
@@ -147,4 +151,5 @@ class MovableObject extends DrawableObject {
             }
         }, 120);
     }
+
 }

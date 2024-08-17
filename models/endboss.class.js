@@ -64,7 +64,10 @@ class Endboss extends MovableObject {
     animation() {
         let i = 0;
         let spawningFinished = false;
-        setInterval(() => {
+        let animationIntervall = setInterval(() => {
+            if (world.gameEnd == true) {
+                clearInterval(animationIntervall);
+            };
             if (!spawningFinished && this.hadFirstContact) {
                 if (i < this.IMAGES_SPAWNING.length * 3) { // Beispiel: Animation dreimal durchlaufen lassen
                     this.playAnimation(this.IMAGES_SPAWNING);
@@ -76,7 +79,6 @@ class Endboss extends MovableObject {
                     spawningFinished = true;
                 }
             } else {
-
                 this.endbossMove();
             }
             if (this.isDeath()) {
@@ -84,10 +86,8 @@ class Endboss extends MovableObject {
                     this.playAnimation(this.IMAGES_DEAD);
                     this.active = false;
                     this.speed = 0;
+                    world.gameEnd = true;
                 }
-                return; // Stoppe weitere Animationen
-
-
             } else if (this.isHurt()) {
                 this.handleHurt();
                 this.moveLeft();

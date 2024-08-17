@@ -81,7 +81,7 @@ class Character extends MovableObject {
     hurt_sound = new Audio('audio/character_hurt.mp3');
     dead_sound = new Audio('audio/character_dead.mp3');
     sleep_sound = new Audio('audio/character_sleep.mp3');
-    
+
 
     constructor() {
         super().loadImage('../img/img/2_character_pepe/2_walk/W-21.png');
@@ -103,7 +103,10 @@ class Character extends MovableObject {
 
 
     characterMovements() {
-        setInterval(() => {
+        let animationIntervall =  setInterval(() => {
+            if (world.gameEnd == true) {
+                clearInterval(animationIntervall);
+            };
             this.walking_sound.pause();
             this.characterMoveRight();
             this.characterMoveLeft();
@@ -114,7 +117,10 @@ class Character extends MovableObject {
 
 
     characterStatus() {
-        setInterval(() => {
+        let animationIntervall = setInterval(() => {
+            if (world.gameEnd == true) {
+                clearInterval(animationIntervall);
+            };
             this.checkKeyDown();
             if (this.isDeath()) {
                 this.playAnimation(this.IMAGES_DEAD);
@@ -122,7 +128,7 @@ class Character extends MovableObject {
                 world.gameLost = true;
                 // this.dead_sound.play(); noch aktivieren
             } else if (this.isHurt()) {
-                    this.handleHurt();
+                this.handleHurt();
             } else if (this.isAboveGround()) {
                 this.playAnimation(this.IMAGES_JUMPING);
                 this.clearSleepTimer();
@@ -144,7 +150,7 @@ class Character extends MovableObject {
         }
     };
 
-    
+
     characterMoveLeft() {
         if (this.world.keyboard.LEFT && this.x > -400) {
             this.moveLeft();
@@ -191,7 +197,7 @@ class Character extends MovableObject {
             this.sleepTimer = null;
         }
         this.sleep = false;
-        this.startSleepTimer(); 
+        this.startSleepTimer();
         this.sleep_sound.pause();
     };
 
@@ -201,7 +207,7 @@ class Character extends MovableObject {
             this.sleepTimer = setTimeout(() => {
                 this.sleep = true;
                 console.log('hallo');
-            }, 15000); 
+            }, 15000);
         }
     };
 }

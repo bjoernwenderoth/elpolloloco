@@ -23,10 +23,11 @@ class World {
         this.keyboard = keyboard;
         this.draw();
         this.setWorld();
-        this.bottleHitEndboss();
-        this.bottleHitEnemy();
-        this.checkCollisions();
+        // this.bottleHitEndboss();
+        // this.bottleHitEnemy();
+        // this.checkCollisions();
         this.run();
+        checkEndScreen();
     };
 
 
@@ -218,7 +219,7 @@ class World {
 
 
     gameEnd() {
-
+        
     }
 
     draw() {

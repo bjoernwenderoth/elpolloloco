@@ -20,6 +20,44 @@ h1 {
     text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.403), 0 0 1em rgba(0, 0, 0, 0.2), 0 0 0.2em rgba(0, 0, 0, 0.3);
 }
 
+.d-none {
+    display: none;
+}
+
+.content {
+    width: 100%;
+    max-width: 720px;
+    aspect-ratio: 1.5 / 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#canvas {
+    z-index: 1;
+}
+
+.end-screen {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 100;
+}
+
+#gameOver {
+    width: 720px;
+    height: 480px;
+}
+
+#youWin {
+    width: 720px;
+    height: 480px;
+}
+
 /* ----- SMARTPHONE ----- */
 
 @media only screen and (max-width: 720px) {

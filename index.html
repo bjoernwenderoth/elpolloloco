@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" translate="no">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,15 +25,32 @@
     <script src="models/keyboard.class.js"></script>
     <script src="models/level.class.js"></script>
     <script src="levels/level1.js"></script>
+    <script src="models/end-screen.js"></script>
     <script src="js/game.js"></script>
-    <style>@font-face {
-        font-family: 'riogrande';
-        src: url('fonts/riogrande.ttf') format('truetype');
-    } </style>
+    <style>
+        @font-face {
+            font-family: 'riogrande';
+            src: url('fonts/riogrande.ttf') format('truetype');
+        }
+    </style>
 </head>
+
 <body onload="init()">
     <h1>(El Pollo Loco)</h1>
-    <canvas id="canvas" width="720" height="480"></canvas>
-    
+  
+
+    <section class="content">
+     
+        <div class="end-screen">
+            <img src="img/img/9_intro_outro_screens/win/youwin_new.png" class="d-none" alt="youWin" id="youWin">
+            <img src="img/img/9_intro_outro_screens/game_over/gameover_new.png" class="d-none" alt="gameOver"
+                id="gameOver">
+        </div>
+
+        <!-- <button>RESTART</button> -->
+        <canvas id="canvas" width="720" height="480"></canvas>
+    </section>
+
 </body>
+
 </html>

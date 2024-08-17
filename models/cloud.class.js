@@ -4,6 +4,7 @@ class Cloud extends MovableObject {
     height = 350;
     speed = 0.23;
 
+
     constructor() {
         super().loadImage('../img/img/5_background/layers/4_clouds/1.png');
         this.x = Math.random() * 500;
@@ -12,8 +13,11 @@ class Cloud extends MovableObject {
 
     
     animation() {
-        setInterval(() => {
+        let animationIntervall = setInterval(() => {
             this.moveLeft();
         }, 50);
+        if (this.gameEnd == true) {
+            clearInterval(animationIntervall);
+        }
     }
 }
